@@ -1,3 +1,4 @@
+# coding: utf-8
 """
 Middleware to identify the country of origin of page requests.
 
@@ -5,15 +6,15 @@ Middleware adds `country_code` in session.
 
 Usage:
 
-# To enable the Geoinfo feature on a per-view basis, use:
-decorator `django.utils.decorators.decorator_from_middleware(middleware_class)`
+# To enable the Geoinfo feature on a per-view basis, use decoarator:
+`django.utils.decorators.decorator_from_middleware(CountryMiddleware)`
 
 """
 
+from ipware.ip import get_real_ip
 import logging
 import pygeoip
 
-from ipware.ip import get_real_ip
 from django.conf import settings
 
 log = logging.getLogger(__name__)
