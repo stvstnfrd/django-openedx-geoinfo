@@ -24,6 +24,7 @@ setup(
         'coverage',
         'django-nose',
         'mock==1.0.1',
+        'pep8',
     ],
     classifiers=[
         'Intended Audience :: Developers',
