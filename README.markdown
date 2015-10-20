@@ -4,8 +4,8 @@ Extracted from edx-platform
 
 
 ## TODO
-- [ ] Convert to djangoapp
-- [ ] Ensure tests run and pass
+- [x] Convert to djangoapp
+- [x] Ensure tests run and pass
 - [ ] Test via Travis-CI
 - [ ] Generate coverage
 - [ ] Submit coverage (i.e. coveralls)
