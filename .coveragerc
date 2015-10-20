@@ -1,0 +1,4 @@
+[run]
+omit =
+    geoinfo/tests/run.py
+    geoinfo/settings.py
