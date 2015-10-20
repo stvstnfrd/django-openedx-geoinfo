@@ -26,8 +26,6 @@ class TestCodeFormat(unittest.TestCase):
             for filename in os.listdir(dir):
                 if filename.endswith('.py') and filename != '__init__.py':
                     warns += flakes.checkPath(os.path.join(dir, filename))
-        for file_input in dirs:
-            warns += flakes.checkPath(file_input)
         if warns > 0:
             print(
                 "Audit finished with total %d warnings" % warns
