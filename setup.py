@@ -17,10 +17,12 @@ setup(
     install_requires=[
         'django==1.4.22',
         'django-ipware==1.1.0',
-        'django-nose',
         'logging',
-        'mock==1.0.1',
         'pygeoip',
+    ],
+    tests_require=[
+        'django-nose',
+        'mock==1.0.1',
     ],
     classifiers=[
         'Intended Audience :: Developers',
