@@ -28,10 +28,11 @@ class TestCodeFormat(unittest.TestCase):
                     warns += flakes.checkPath(os.path.join(dir, filename))
         for file_input in dirs:
             warns += flakes.checkPath(file_input)
-        # pragma: no cover
         if warns > 0:
-            print("Audit finished with total %d warnings" % warns)
-            raise Exception(warns)
+            print(
+                "Audit finished with total %d warnings" % warns
+            )  # pragma: no cover
+            raise Exception(warns)  # pragma: no cover
 
     def test_pep8(self):
         """Test that we conform to PEP8."""
