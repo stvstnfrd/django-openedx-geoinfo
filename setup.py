@@ -1,19 +1,35 @@
 from setuptools import setup
 
+_version = '1.0.0'
 
 setup(
+    # Metadata
     name='django-openedx-geoinfo',
-    version='1.0.0',
+    version=_version,
+    license='AGPL-3.0',
     description='TODO: Short description',
     long_description='TODO: Long description',
     author='stv',
     author_email='stv@stanford.edu',
-    url='https://github.com/Stanford-Online/django-openedx-geoinfo',
-    license='AGPL-3.0',
+    classifiers=[
+        'Development Status :: 6 - Mature',
+        'Framework :: Django :: 1.4',
+        'Intended Audience :: Developers',
+        'License :: OSI Approved :: GNU Affero General Public License v3',
+        'Operating System :: OS Independent',
+        'Programming Language :: Python :: 2.7'
+        'Topic :: Internet :: WWW/HTTP :: WSGI :: Middleware',
+    ],
+
+    # URLs
+    url='https://github.com/stvstnfrd/django-openedx-geoinfo',
+    download_url='https://github.com/stvstnfrd/django-openedx-geoinfo/tarball/release/v/' + _version,
+
+    # Packages
     packages=[
         'geoinfo',
+        'geoinfo.tests',
     ],
-    test_suite='geoinfo.tests.run.run_tests',
     install_requires=[
         'django==1.4.22',
         'django-ipware==1.1.0',
@@ -27,13 +43,15 @@ setup(
         'pep8',
         'pyflakes',
     ],
-    classifiers=[
-        'Development Status :: 6 - Mature',
-        'Framework :: Django :: 1.4',
-        'Intended Audience :: Developers',
-        'License :: OSI Approved :: GNU Affero General Public License v3',
-        'Operating System :: OS Independent',
-        'Programming Language :: Python :: 2.7'
-        'Topic :: Internet :: WWW/HTTP :: WSGI :: Middleware',
-    ],
+    test_suite='geoinfo.tests.run.run_tests',
+
+    # Distribution
+    package_dir={
+        'geoinfo': 'geoinfo',
+    },
+    package_data={
+        'geoinfo': [
+            'data/geoip/*.dat',
+        ],
+    },
 )
