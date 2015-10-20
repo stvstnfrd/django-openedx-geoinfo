@@ -25,6 +25,7 @@ setup(
         'django-nose',
         'mock==1.0.1',
         'pep8',
+        'pylint',
     ],
     classifiers=[
         'Intended Audience :: Developers',
