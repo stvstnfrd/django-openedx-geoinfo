@@ -28,10 +28,12 @@ setup(
         'pyflakes',
     ],
     classifiers=[
+        'Development Status :: 6 - Mature',
+        'Framework :: Django :: 1.4',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: GNU Affero General Public License v3',
         'Operating System :: OS Independent',
-        'Programming Language :: Python',
-        'Topic :: Internet :: WWW/HTTP',
+        'Programming Language :: Python :: 2.7'
+        'Topic :: Internet :: WWW/HTTP :: WSGI :: Middleware',
     ],
 )
