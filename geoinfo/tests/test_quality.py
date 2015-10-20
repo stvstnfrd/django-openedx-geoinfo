@@ -21,20 +21,17 @@ class TestCodeFormat(unittest.TestCase):
         ]))
         modules = ['geoinfo']
         dirs = (os.path.join(*d) for d in (m.split('.') for m in modules))
-        # files = glob.glob(path)
         warns = 0
         for dir in dirs:
             for filename in os.listdir(dir):
                 if filename.endswith('.py') and filename != '__init__.py':
                     warns += flakes.checkPath(os.path.join(dir, filename))
-        # raise Exception(dirs)
         for file_input in dirs:
             warns += flakes.checkPath(file_input)
+        # pragma: no cover
         if warns > 0:
-            print(
-                "Audit finished with total %d warnings" % warns
-            )  # pragma: no cover
-            raise Exception(warns)  # pragma: no cover
+            print("Audit finished with total %d warnings" % warns)
+            raise Exception(warns)
 
     def test_pep8(self):
         """Test that we conform to PEP8."""
