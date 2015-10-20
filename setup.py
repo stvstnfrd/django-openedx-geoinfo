@@ -13,7 +13,7 @@ setup(
     packages=[
         'geoinfo',
     ],
-    test_suite='geoinfo.tests.runtests.run_tests',
+    test_suite='geoinfo.tests.run.run_tests',
     install_requires=[
         'django==1.4.22',
         'django-ipware==1.1.0',
