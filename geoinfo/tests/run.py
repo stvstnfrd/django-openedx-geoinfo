@@ -9,7 +9,7 @@ import os
 import sys
 
 
-def run_tests(apps=None, verbosity=1, interactive=False):
+def run_tests():
     import django
     os.environ['DJANGO_SETTINGS_MODULE'] = 'geoinfo.settings'
     if django.VERSION >= (1, 7):
@@ -18,17 +18,11 @@ def run_tests(apps=None, verbosity=1, interactive=False):
     from django.test.utils import get_runner
     TestRunner = get_runner(settings)
     test_runner = TestRunner(
-        verbosity=verbosity,
-        interactive=interactive,
+        verbosity=1,
+        interactive=False,
         failfast=False,
     )
-    if apps:
-        app_tests = [x.strip() for x in apps if x]
-    else:
-        app_tests = [
-            'geoinfo',
-        ]
-    failures = test_runner.run_tests(app_tests)
+    failures = test_runner.run_tests([])
     sys.exit(bool(failures))
 
 
