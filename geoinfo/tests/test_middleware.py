@@ -25,7 +25,11 @@ class CountryMiddlewareTests(TestCase):
         self.authenticated_user = User.objects.create_user('generic_username')
         self.anonymous_user = AnonymousUser()
         self.request_factory = RequestFactory()
-        self.patcher = patch.object(pygeoip.GeoIP, 'country_code_by_addr', self.mock_country_code_by_addr)
+        self.patcher = patch.object(
+            pygeoip.GeoIP,
+            'country_code_by_addr',
+            self.mock_country_code_by_addr,
+        )
         self.patcher.start()
         self.addCleanup(self.patcher.stop)
 
@@ -126,4 +130,6 @@ class CountryMiddlewareTests(TestCase):
         # Country code added to session.
         self.assertEqual('CN', request.session.get('country_code'))
         self.assertEqual(
-            '2001:da8:20f:1502:edcf:550b:4a9c:207d', request.session.get('ip_address'))
+            '2001:da8:20f:1502:edcf:550b:4a9c:207d',
+            request.session.get('ip_address'),
+        )
