@@ -4,4 +4,8 @@ cache: pip
 python:
     - '2.7'
 script:
-    - 'python setup.py test'
+    - 'coverage run setup.py test'
+    - 'coverage report'
+after_success:
+    - 'pip install coveralls'
+    - 'coveralls'

@@ -21,6 +21,7 @@ setup(
         'pygeoip',
     ],
     tests_require=[
+        'coverage',
         'django-nose',
         'mock==1.0.1',
     ],
