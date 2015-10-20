@@ -11,3 +11,5 @@ Extracted from edx-platform
 - [x] Submit coverage (i.e. coveralls)
 - [x] Check quality; pep8/pylint
 - [ ] Publish to PyPi
+
+[![Coverage Status](https://coveralls.io/repos/stvstnfrd/django-openedx-geoinfo/badge.svg?branch=dev&service=github)](https://coveralls.io/github/stvstnfrd/django-openedx-geoinfo?branch=dev)
