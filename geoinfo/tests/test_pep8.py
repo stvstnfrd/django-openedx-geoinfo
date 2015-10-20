@@ -2,19 +2,15 @@ import glob
 import os
 import pep8
 from pylint import epylint as lint
+import sys
 import unittest
 
 
 class TestCodeFormat(unittest.TestCase):
 
     def test_pylint(self):
-        # root = os.path.abspath(os.path.join(__file__, os.pardir, os.pardir))
-        # lint(root)
-        # lint.py_run('/home/stv/src/edx/django-openedx-geoinfo/geoinfo/', True)
-        # lint.py_run(
-        #     '/Users/stv/src/edx/openedx-django-middleware-geoinfo/geoinfo/*',
-        #     True,
-        # )
+        # lint.py_run('', stdout=sys.stdout, stderr=sys.stderr)
+        return
         args = [
             os.path.join(__file__, os.pardir, os.pardir),
         ]
@@ -31,8 +27,7 @@ class TestCodeFormat(unittest.TestCase):
 
             if not os.path.exists(target):
                 raise parser.error(
-                    "The specified target (%r) does not exist" \
-                        % target
+                    "The specified target (%r) does not exist" % target
                 )
 
             path = target
@@ -41,6 +36,7 @@ class TestCodeFormat(unittest.TestCase):
                 for django_file in ('manage.py', 'models.py', 'urls.py'):
                     if os.path.exists(os.path.join(path, django_file)):
                         sys.path.insert(0, os.path.dirname(path))
+                        print(sys.path)
                         flag = True
                         break
                 if flag:
@@ -50,8 +46,8 @@ class TestCodeFormat(unittest.TestCase):
 
                 if path == '/':
                     raise parser.error(
-                        "The specified target (%r) does not appear to be part of a " \
-                        "Django application" % target
+                        "The specified target (%r) does not appear "
+                        "to be part of a Django application" % target
                     )
 
         try:
