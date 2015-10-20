@@ -1,6 +1,8 @@
 from setuptools import setup
 
 _version = '1.0.0'
+with open('README.markdown') as file_input:
+    readme = file_input.read()
 
 setup(
     # Metadata
@@ -8,7 +10,7 @@ setup(
     version=_version,
     license='AGPL-3.0',
     description='TODO: Short description',
-    long_description='TODO: Long description',
+    long_description=readme,
     author='stv',
     author_email='stv@stanford.edu',
     classifiers=[
