@@ -7,7 +7,7 @@ Extracted from edx-platform
 - [x] Convert to djangoapp
 - [x] Ensure tests run and pass
 - [x] Test via Travis-CI
-- [ ] Generate coverage
-- [ ] Submit coverage (i.e. coveralls)
-- [ ] Check quality; pep8/pylint
+- [x] Generate coverage
+- [x] Submit coverage (i.e. coveralls)
+- [x] Check quality; pep8/pylint
 - [ ] Publish to PyPi
