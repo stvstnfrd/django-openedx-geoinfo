@@ -25,7 +25,7 @@ setup(
 
     # URLs
     url='https://github.com/stvstnfrd/django-openedx-geoinfo',
-    download_url='https://github.com/stvstnfrd/django-openedx-geoinfo/tarball/release/v/' + _version,
+    download_url='https://github.com/stvstnfrd/django-openedx-geoinfo/tarball/release/version/' + _version,
 
     # Packages
     packages=[
