@@ -1,3 +1,5 @@
+#!/usr/bin/make -f
+
 .PHONY: clean-pyc clean-build docs clean
 
 help:
