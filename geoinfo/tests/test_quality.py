@@ -1,11 +1,11 @@
+# coding: utf-8
 import glob
 import os
-import pep8
-# from pylint import epylint as lint
-import pyflakes.scripts.pyflakes as flakes
 import sys
 import unittest
 
+import pep8
+import pyflakes.scripts.pyflakes as flakes
 
 class TestCodeFormat(unittest.TestCase):
 
