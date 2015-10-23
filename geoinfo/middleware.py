@@ -1,3 +1,4 @@
+# coding: utf-8
 """
 Middleware to identify the country of origin of page requests.
 
