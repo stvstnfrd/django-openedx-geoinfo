@@ -7,6 +7,7 @@ import unittest
 import pep8
 import pyflakes.scripts.pyflakes as flakes
 
+
 class TestCodeFormat(unittest.TestCase):
 
     def test_pyflakes(self):
