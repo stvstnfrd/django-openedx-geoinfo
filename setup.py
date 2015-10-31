@@ -67,7 +67,6 @@ setup(
     ],
     tests_require=[
     ],
-    # test_suite='geoinfo.test.run.run_tests',
     cmdclass={
         'test': Tox,
     },
