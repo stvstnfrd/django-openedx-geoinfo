@@ -52,7 +52,7 @@ setup(
     packages=find_packages('.'),
     install_requires=[
         # geoinfo
-        'django',
+        'Django',
         'django-ipware==1.1.0',
         'logging',
         'pygeoip',
