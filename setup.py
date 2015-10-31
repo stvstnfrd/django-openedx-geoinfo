@@ -50,6 +50,16 @@ setup(
     download_url='https://github.com/stvstnfrd/django-openedx-geoinfo/tarball/release/version/' + _version,
     # Packages
     packages=find_packages('src'),
+    include_package_data=True,
+    package_dir={
+        '': 'src',
+        'geoinfo': 'src/geoinfo',
+    },
+    package_data={
+        'geoinfo': [
+            'data/*.dat'
+        ],
+    },
     install_requires=[
         # geoinfo
         'django>=1.4',
@@ -62,7 +72,6 @@ setup(
         'coverage',
         'django-nose>=1.4',
         'mock==1.0.1',
-        'flake8',
         'tox',
     ],
     tests_require=[
