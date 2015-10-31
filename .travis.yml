@@ -12,18 +12,16 @@ install:
     - 'easy_install --version'
     - 'pip --version'
     - 'tox --version'
+    - 'pip install coveralls'
 script:
     - 'tox -v'
-after_success:
-    - 'pip install coveralls'
-    - 'coveralls'
 branches:
     only:
       - 'master'
 env:
     - TOXENV=py27-dj14
     - TOXENV=py27-dj18
-    - TOXENV=coverage
+    - TOXENV=coveralls
     - TOXENV=pep8
     - TOXENV=pyflakes
     - TOXENV=pylint
