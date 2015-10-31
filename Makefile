@@ -30,7 +30,7 @@ clean-test:
 	rm -fr .tox/
 
 test:
-	python setup.py test
+	python setup.py test || pip freeze && exit 1
 
 release: clean
 	python setup.py sdist upload

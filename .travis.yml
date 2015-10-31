@@ -4,6 +4,7 @@ cache: pip
 python:
     - '2.7'
 script:
+    - 'pip freeze'
     - 'make test'
 after_success:
     - 'pip install coveralls'

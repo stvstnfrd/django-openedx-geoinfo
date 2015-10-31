@@ -60,7 +60,7 @@ setup(
         # packages. This enables you to monkey-patch the library and its
         # tests, instead of forking the entire package.
         'coverage',
-        'django-nose',
+        'django-nose>=1.4',
         'mock==1.0.1',
         'flake8',
         'tox',
