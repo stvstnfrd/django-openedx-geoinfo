@@ -12,7 +12,7 @@ import sys
 def run_tests():
     import django
     os.environ['DJANGO_SETTINGS_MODULE'] = 'geoinfo.settings'
-    if django.VERSION >= (1, 7):
+    if hasattr(django, 'setup'):
         django.setup()
     from django.conf import settings
     from django.test.utils import get_runner

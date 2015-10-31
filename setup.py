@@ -51,7 +51,7 @@ setup(
     # Packages
     packages=find_packages('.'),
     install_requires=[
-        'django==1.4.22',
+        'django>=1.4.22,<1.9',
         'django-ipware==1.1.0',
         'logging',
         'pygeoip',
@@ -63,9 +63,9 @@ setup(
         'flake8',
         'tox',
     ],
-    test_suite='geoinfo.test.run.run_tests',
+    # test_suite='geoinfo.test.run.run_tests',
     cmdclass={
-        # 'test': Tox,
+        'test': Tox,
     },
     # Distribution
     package_dir={
