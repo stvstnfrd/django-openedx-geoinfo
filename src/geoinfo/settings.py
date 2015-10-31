@@ -1,4 +1,7 @@
 # coding: utf-8
+"""
+Configure settings for the djangoapp
+"""
 import os
 
 

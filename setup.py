@@ -1,4 +1,7 @@
 # coding: utf-8
+"""
+Setup package
+"""
 from setuptools import setup
 from setuptools import find_packages
 from setuptools.command.test import test as TestCommand

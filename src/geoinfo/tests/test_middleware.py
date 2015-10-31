@@ -14,6 +14,19 @@ from django.test.client import RequestFactory
 from geoinfo.middleware import CountryMiddleware
 
 
+def country_code_by_addr(_mocked, ip_addr):
+    """
+    Gives us a fake set of IPs
+    """
+    ip_dict = {
+        '117.79.83.1': 'CN',
+        '117.79.83.100': 'CN',
+        '4.0.0.0': 'SD',
+        '2001:da8:20f:1502:edcf:550b:4a9c:207d': 'CN',
+    }
+    return ip_dict.get(ip_addr, 'US')
+
+
 class CountryMiddlewareTests(TestCase):
     """
     Tests of CountryMiddleware.
@@ -28,24 +41,15 @@ class CountryMiddlewareTests(TestCase):
         self.patcher = patch.object(
             pygeoip.GeoIP,
             'country_code_by_addr',
-            self.mock_country_code_by_addr,
+            country_code_by_addr,
         )
         self.patcher.start()
         self.addCleanup(self.patcher.stop)
 
-    def mock_country_code_by_addr(self, ip_addr):
-        """
-        Gives us a fake set of IPs
-        """
-        ip_dict = {
-            '117.79.83.1': 'CN',
-            '117.79.83.100': 'CN',
-            '4.0.0.0': 'SD',
-            '2001:da8:20f:1502:edcf:550b:4a9c:207d': 'CN',
-        }
-        return ip_dict.get(ip_addr, 'US')
-
     def test_country_code_added(self):
+        """
+        Test country_code is injected into request
+        """
         request = self.request_factory.get(
             '/somewhere',
             HTTP_X_FORWARDED_FOR='117.79.83.1',
@@ -61,6 +65,9 @@ class CountryMiddlewareTests(TestCase):
         self.assertEqual('117.79.83.1', request.session.get('ip_address'))
 
     def test_ip_address_changed(self):
+        """
+        Test ip_address is injected into request
+        """
         request = self.request_factory.get(
             '/somewhere',
             HTTP_X_FORWARDED_FOR='4.0.0.0',
@@ -75,6 +82,9 @@ class CountryMiddlewareTests(TestCase):
         self.assertEqual('4.0.0.0', request.session.get('ip_address'))
 
     def test_ip_address_is_not_changed(self):
+        """
+        Test ip_address can pass through unchanged
+        """
         request = self.request_factory.get(
             '/somewhere',
             HTTP_X_FORWARDED_FOR='117.79.83.1',
@@ -89,6 +99,9 @@ class CountryMiddlewareTests(TestCase):
         self.assertEqual('117.79.83.1', request.session.get('ip_address'))
 
     def test_same_country_different_ip(self):
+        """
+        Test multiple ip_addresses can map to same country
+        """
         request = self.request_factory.get(
             '/somewhere',
             HTTP_X_FORWARDED_FOR='117.79.83.100',
@@ -103,6 +116,9 @@ class CountryMiddlewareTests(TestCase):
         self.assertEqual('117.79.83.100', request.session.get('ip_address'))
 
     def test_ip_address_is_none(self):
+        """
+        Test missing ip_address is handled
+        """
         # IP address is not defined in request.
         request = self.request_factory.get('/somewhere')
         request.user = self.anonymous_user
@@ -117,6 +133,9 @@ class CountryMiddlewareTests(TestCase):
         self.assertNotIn('ip_address', request.session)
 
     def test_ip_address_is_ipv6(self):
+        """
+        Test IPv6 ip_address
+        """
         request = self.request_factory.get(
             '/somewhere',
             HTTP_X_FORWARDED_FOR='2001:da8:20f:1502:edcf:550b:4a9c:207d'

@@ -10,21 +10,20 @@ Usage:
 `django.utils.decorators.decorator_from_middleware(CountryMiddleware)`
 
 """
-
 from ipware.ip import get_real_ip
 import logging
 import pygeoip
 
 from django.conf import settings
 
-log = logging.getLogger(__name__)
+LOG = logging.getLogger(__name__)
 
 
-class CountryMiddleware(object):
+class CountryMiddleware(object):  # pylint: disable=too-few-public-methods
     """
     Identify the country by IP address.
     """
-    def process_request(self, request):
+    def process_request(self, request):  # pylint: disable=no-self-use
         """
         Identify the country by IP address.
 
@@ -45,7 +44,7 @@ class CountryMiddleware(object):
             country_code = geo_ip.country_code_by_addr(new_ip_address)
             request.session['country_code'] = country_code
             request.session['ip_address'] = new_ip_address
-            log.debug(
+            LOG.debug(
                 "Country code for IP: %s is set to %s",
                 new_ip_address,
                 country_code,
