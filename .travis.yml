@@ -23,6 +23,7 @@ branches:
 env:
     - TOXENV=py27-dj14
     - TOXENV=py27-dj18
+    - TOXENV=coverage
     - TOXENV=pep8
     - TOXENV=pyflakes
     - TOXENV=pylint
