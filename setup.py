@@ -51,17 +51,21 @@ setup(
     # Packages
     packages=find_packages('.'),
     install_requires=[
-        'django>=1.4.22,<1.9',
+        # geoinfo
+        'django==1.4',
         'django-ipware==1.1.0',
         'logging',
         'pygeoip',
-    ],
-    tests_require=[
+        # Test dependencies installed as tests are included inside the
+        # packages. This enables you to monkey-patch the library and its
+        # tests, instead of forking the entire package.
         'coverage',
         'django-nose',
         'mock==1.0.1',
         'flake8',
         'tox',
+    ],
+    tests_require=[
     ],
     # test_suite='geoinfo.test.run.run_tests',
     cmdclass={
@@ -70,10 +74,5 @@ setup(
     # Distribution
     package_dir={
         'geoinfo': 'geoinfo',
-    },
-    package_data={
-        'geoinfo': [
-            'data/geoip/*.dat',
-        ],
     },
 )
