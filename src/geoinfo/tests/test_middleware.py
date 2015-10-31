@@ -2,7 +2,6 @@
 """
 Tests for CountryMiddleware.
 """
-import unittest
 from mock import patch
 import pygeoip
 

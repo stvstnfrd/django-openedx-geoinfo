@@ -38,9 +38,15 @@ class CountryMiddleware(object):
             del request.session['country_code']
         elif new_ip_address != old_ip_address:
             if new_ip_address.find(':') >= 0:
-                country_code = pygeoip.GeoIP(settings.GEOIPV6_PATH).country_code_by_addr(new_ip_address)
+                path_data = settings.GEOIPV6_PATH
             else:
-                country_code = pygeoip.GeoIP(settings.GEOIP_PATH).country_code_by_addr(new_ip_address)
+                path_data = settings.GEOIP_PATH
+            geo_ip = pygeoip.GeoIP(path_data)
+            country_code = geo_ip.country_code_by_addr(new_ip_address)
             request.session['country_code'] = country_code
             request.session['ip_address'] = new_ip_address
-            log.debug('Country code for IP: %s is set to %s', new_ip_address, country_code)
+            log.debug(
+                "Country code for IP: %s is set to %s",
+                new_ip_address,
+                country_code,
+            )
