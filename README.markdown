@@ -12,4 +12,5 @@ Extracted from edx-platform
 - [x] Check quality; pep8/pylint
 - [ ] Publish to PyPi
 
+[![Build Status](https://travis-ci.org/stvstnfrd/django-openedx-geoinfo.svg)](https://travis-ci.org/stvstnfrd/django-openedx-geoinfo)
 [![Coverage Status](https://coveralls.io/repos/stvstnfrd/django-openedx-geoinfo/badge.svg?branch=dev&service=github)](https://coveralls.io/github/stvstnfrd/django-openedx-geoinfo?branch=dev)
