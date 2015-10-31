@@ -4,7 +4,7 @@ cache: pip
 python:
     - '2.7'
 script:
-    - 'tox'
+    - 'python setup.py test'
 after_success:
     - 'pip install coveralls'
     - 'coveralls'
