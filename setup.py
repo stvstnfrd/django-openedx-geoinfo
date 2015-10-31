@@ -55,11 +55,6 @@ setup(
         '': 'src',
         'geoinfo': 'src/geoinfo',
     },
-    package_data={
-        'geoinfo': [
-            'data/*.dat'
-        ],
-    },
     install_requires=[
         # geoinfo
         'django>=1.4',
