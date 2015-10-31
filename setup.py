@@ -52,7 +52,7 @@ setup(
     packages=find_packages('.'),
     install_requires=[
         # geoinfo
-        'Django',
+        'django>=1.4',
         'django-ipware==1.1.0',
         'logging',
         'pygeoip',
@@ -70,9 +70,5 @@ setup(
     # test_suite='geoinfo.test.run.run_tests',
     cmdclass={
         'test': Tox,
-    },
-    # Distribution
-    package_dir={
-        'geoinfo': 'geoinfo',
     },
 )
