@@ -27,6 +27,7 @@ clean-pyc:
 clean-test:
 	rm -f .coverage
 	rm -fr htmlcov/
+	rm -fr .tox/
 
 test:
 	python setup.py test

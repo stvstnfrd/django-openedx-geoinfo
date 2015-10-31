@@ -1,3 +1,4 @@
+# coding: utf-8
 from setuptools import setup
 from setuptools import find_packages
 from setuptools.command.test import test as TestCommand
@@ -25,7 +26,6 @@ class Tox(TestCommand):
             args = shlex.split(self.tox_args)
         errno = tox.cmdline(args=args)
         sys.exit(errno)
-
 
 setup(
     # Metadata
@@ -65,7 +65,7 @@ setup(
     ],
     test_suite='geoinfo.test.run.run_tests',
     cmdclass={
-        'test': Tox,
+        # 'test': Tox,
     },
     # Distribution
     package_dir={
