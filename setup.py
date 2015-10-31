@@ -49,7 +49,7 @@ setup(
     url='https://github.com/stvstnfrd/django-openedx-geoinfo',
     download_url='https://github.com/stvstnfrd/django-openedx-geoinfo/tarball/release/version/' + _version,
     # Packages
-    packages=find_packages('.'),
+    packages=find_packages('src'),
     install_requires=[
         # geoinfo
         'django>=1.4',
