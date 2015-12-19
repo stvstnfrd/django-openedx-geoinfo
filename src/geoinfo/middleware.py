@@ -10,8 +10,9 @@ Usage:
 `django.utils.decorators.decorator_from_middleware(CountryMiddleware)`
 
 """
-from ipware.ip import get_real_ip
 import logging
+
+from ipware.ip import get_real_ip
 import pygeoip
 
 from django.conf import settings
